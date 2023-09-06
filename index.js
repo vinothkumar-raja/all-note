@@ -15,7 +15,7 @@ const addButtonEl = document.getElementById("add-button")
 const shoppingListEl = document.getElementById("shopping-list")
 
 onValue(todoList, function(list) {
-    let listArray = Object.entries(list.val())
+    let listArray = Object.entries(snapshot.val())
     shoppingListEl.innerHTML = ""
     showList(listArray)
 })
@@ -32,10 +32,10 @@ function showList(listArray) {
 
     for(let i=0;i<listArray.length;i++) {
         let currentList = listArray[i]
-        let currentId = listArray[0]
-        let currentValue = listArray[1]
+        let currentId = currentList[0]
+        let currentValue = currentList[1]
         let newEl = document.createElement("li")
-    
+        newEl.textContent = itemValue
         // Challenge: Attach an event listener to newEl and make it so you console log the id of the item when it's pressed.
         newEl.addEventListener("click", function() {
             console.log(currentId)
