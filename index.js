@@ -15,7 +15,7 @@ const addButtonEl = document.getElementById("add-button")
 const shoppingListEl = document.getElementById("shopping-list")
 
 onValue(todoList, function(list) {
-    if (snapshot.exists()) {
+    if (list.exists()) {
     let listArray = Object.entries(list.val())
     shoppingListEl.innerHTML = ""
     showList(listArray)
