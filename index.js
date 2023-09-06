@@ -30,7 +30,7 @@ function showList(listArray) {
 
     let htmlList = ""
     for(let i=0;i<listArray.length;i++) {
-        htmlList = `<li>${listArray[i]}</li>`
+        htmlList += `<li>${listArray[i]}</li>`
     }
 
     shoppingListEl.innerHTML = htmlList
