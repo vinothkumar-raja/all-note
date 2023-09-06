@@ -15,14 +15,19 @@ const addButtonEl = document.getElementById("add-button")
 const shoppingListEl = document.getElementById("shopping-list")
 
 onValue(todoList, function(list) {
+    if (snapshot.exists()) {
     let listArray = Object.entries(list.val())
     shoppingListEl.innerHTML = ""
     showList(listArray)
+    } else {
+        shoppingListEl.innerHTML = "No List Available to fetch...!"
+    }
+
 })
 
 addButtonEl.addEventListener("click", function() {
     let inputValue = inputFieldEl.value
-    if(inputValue === "") {
+    if(inputValue !== "") {
         push(shoppingListInDB, inputValue)
     }
     inputFieldEl.value = ""
