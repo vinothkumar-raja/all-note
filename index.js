@@ -15,7 +15,7 @@ const addButtonEl = document.getElementById("add-button")
 const shoppingListEl = document.getElementById("shopping-list")
 
 onValue(todoList, function(list) {
-    let listArray = Objects.values(list.val())
+    let listArray = Object.values(list.val())
     shoppingListEl.innerHTML = ""
     showList(listArray)
 })
