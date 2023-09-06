@@ -21,7 +21,7 @@ h1 {
     color: #AC485A;
     font-weight: bold;
     font-style: italic;
-    padding-left: 90px;
+    padding-left: 100px;
 }
 
 button {
@@ -36,7 +36,7 @@ button {
 }
 
 img.app-logo {
-    padding-left: 70px;
+    padding-left: 10px;
 }
 
 img {
