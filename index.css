@@ -30,21 +30,23 @@ button {
     background-color: #AC485A; 
     border: none;
     border-radius: 2px;
-    
     margin-top: 10px;
 }
 
-img.app-logo {
+/* img.app-logo {
     padding-left: 70px;
+} */
+
+img {
+    width: 150px;
+    margin: 0 auto;
 }
 
 .container {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    margin: 30px auto;
 }
 
 ul {

@@ -22,7 +22,9 @@ onValue(todoList, function(list) {
 
 addButtonEl.addEventListener("click", function() {
     let inputValue = inputFieldEl.value
-    push(shoppingListInDB, inputValue)
+    if(inputValue === "") {
+        push(shoppingListInDB, inputValue)
+    }
     inputFieldEl.value = ""
 })
 
