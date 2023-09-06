@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const appSettings = {
     databaseURL: "https://all-note-app-default-rtdb.firebaseio.com/"
@@ -15,7 +15,7 @@ const addButtonEl = document.getElementById("add-button")
 const shoppingListEl = document.getElementById("shopping-list")
 
 onValue(todoList, function(list) {
-    let listArray = Object.values(list.val())
+    let listArray = Object.entries(list.val())
     shoppingListEl.innerHTML = ""
     showList(listArray)
 })
@@ -30,10 +30,23 @@ addButtonEl.addEventListener("click", function() {
 
 function showList(listArray) {
 
-    let htmlList = ""
     for(let i=0;i<listArray.length;i++) {
-        htmlList += `<li>${listArray[i]}</li>`
+        let currentList = listArray[i]
+        let currentId = listArray[0]
+        let currentValue = listArray[1]
+        let newEl = document.createElement("li")
+    
+        // Challenge: Attach an event listener to newEl and make it so you console log the id of the item when it's pressed.
+        newEl.addEventListener("click", function() {
+            console.log(currentId)
+            let exactLocationOfItemInDB = ref(database, `todoList/${currentId}`)
+            remove(exactLocationOfItemInDB)
+        })
+
+        shoppingListEl.append(newEl)
     }
 
-    shoppingListEl.innerHTML = htmlList
+   
+
+   
 }
